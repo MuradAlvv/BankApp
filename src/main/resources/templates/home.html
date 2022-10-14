@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Your account</h1>
+
+<div>
+    <span th:text="${username}"></span><br>
+    <span>Your balance is: </span>
+    <span th:text="${balance}"></span><br>
+
+    <h3>Make transaction: </h3>
+    <h4>Transfer money to:</h4>
+    <form th:method="POST" th:action="@{/demobank/}" th:object="${transaction}">
+    <label for="toUser">Username: </label>
+    <input type="text" name="toUser" id="toUser"  th:field="*{toUser}"/><br/>
+    <label for="amount">Amount : </label>
+    <input type="text" name="amount" id="amount" th:field="*{amount}"/><br/>
+    <input type="submit"/>
+
+    </form>
+</div>
+</body>
+</html>
